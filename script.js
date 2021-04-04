@@ -33,7 +33,7 @@ var btnStart = document.querySelector('.btn-start');
 
 
 var players = prompt(`Число игроков:`);
-while(players >= 10 || !Number(players)){
+while(players < 3 ||players >= 10 || !Number(players)){
   alert('Ошибка: Введите числовое положительное значение не больше 10');
   players = prompt('Число игроков:');
 }
