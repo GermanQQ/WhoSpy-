@@ -57,19 +57,25 @@ for (var i = 1; i <= players; i++) {
 
 
 btnStart.addEventListener('click' , function(){
-  var randomLoc = Math.floor(Math.random() * locations.length);
-  var randomSpy = Math.floor(Math.random() * arrPlayers.length);
-  for (var i = 1; i <= players; i++) {
-    if (i == arrPlayers[randomSpy]) {
-      alert(`Игрок ${i} ---- ШПИОН`);
-      alert('Next');
-    }
-    else {
-      alert(`Игрок ${i} ---- ${locations[randomLoc]}`);
-      alert('Next');
-    };
+  if(locations.length == 0){
+    alert('Words Over!')
   }
-
+  if(locations.length > 0){
+    var randomLoc = Math.floor(Math.random() * locations.length);
+    var randomSpy = Math.floor(Math.random() * arrPlayers.length);
+    for (var i = 1; i <= players; i++) {
+      if (i == arrPlayers[randomSpy]) {
+        alert(`Игрок ${i} ---- ШПИОН`);
+        alert('Next');
+      }
+      else {
+        alert(`Игрок ${i} ---- ${locations[randomLoc]}`);
+        alert('Next');
+      };
+    }
+  }
+ 
+  locations.splice(randomLoc, 1);
 })
 
 
