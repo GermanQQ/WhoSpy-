@@ -39,7 +39,7 @@ var locations = [
 ];
 
 var btnStart = document.querySelector('.btn-start');
-// var btnAddCount = document.querySelector('.btn-spy-count');
+var btnAddCount = document.querySelector('.btn-spy-count');
 
 var players = prompt(`Число игроков:`);
 while(players < 3 ||players >= 10 || !Number(players)){
@@ -53,7 +53,9 @@ for (var i = 1; i <= players; i++) {
   arrPlayers.push(i);
 }
 
-    
+btnAddCount.addEventListener('click' , function(){
+  console.log('click')
+})
 
 btnStart.addEventListener('click' , function(){
     var randomLoc = Math.floor(Math.random() * locations.length);
