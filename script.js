@@ -54,14 +54,14 @@ for (var i = 1; i <= players; i++) {
 }
 
 btnAddCount.addEventListener('click' , function(){
-  console.log('click')
+  console.log('click');
 })
 
 btnStart.addEventListener('click' , function(){
     var randomLoc = Math.floor(Math.random() * locations.length);
     var randomSpy = Math.floor(Math.random() * arrPlayers.length);
-    var randomSpy2 = Math.floor(Math.random() * arrPlayers.length);
-    while(randomSpy == randomSpy2) randomSpy2 = Math.floor(Math.random() * arrPlayers.length);
+    // var randomSpy2 = Math.floor(Math.random() * arrPlayers.length);
+    // while(randomSpy == randomSpy2) randomSpy2 = Math.floor(Math.random() * arrPlayers.length);
 
   if(locations.length == 0){
     alert('Words Over!')
@@ -69,7 +69,7 @@ btnStart.addEventListener('click' , function(){
   if(locations.length > 0){
     
     for (var i = 1; i <= players; i++) {
-      if (i == arrPlayers[randomSpy] || i == arrPlayers[randomSpy2]){
+      if (i == arrPlayers[randomSpy]){
         alert(`Игрок ${i} ---- ШПИОН`);
         alert('Next');
       }
