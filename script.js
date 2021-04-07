@@ -39,7 +39,7 @@ var locations = [
 ];
 
 var btnStart = document.querySelector('.btn-start');
-var btnAddCount = document.querySelector('.btn-spy-count');
+// var btnAddCount = document.querySelector('.btn-spy-count');
 
 var players = prompt(`Число игроков:`);
 while(players < 3 ||players >= 10 || !Number(players)){
@@ -59,8 +59,8 @@ btnStart.addEventListener('click' , function(){
     var randomLoc = Math.floor(Math.random() * locations.length);
     var randomSpy = Math.floor(Math.random() * arrPlayers.length);
     var randomSpy2 = Math.floor(Math.random() * arrPlayers.length);
-    
-    while(randomSpy == randomSpy2) Math.floor(Math.random() * arrPlayers.length);
+    while(randomSpy == randomSpy2) randomSpy2 = Math.floor(Math.random() * arrPlayers.length);
+
   if(locations.length == 0){
     alert('Words Over!')
   }
