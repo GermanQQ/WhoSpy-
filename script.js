@@ -51,17 +51,22 @@ let activeOneSpy = true;
 let activeTwoSpy = false;
 
 
-var players = prompt(`Число игроков:`);
-while(players < 3 ||players >= 10 || !Number(players)){
-  alert('Ошибка: Введите число от 3 до 10');
-  players = prompt('Число игроков:');
-}
-
 var arrPlayers = [];
 
-for (var i = 1; i <= players; i++) {
-  arrPlayers.push(i);
-}
+
+
+  var players = prompt(`Число игроков:`); //Число игроков
+  while(players < 3 ||players >= 10 || !Number(players)){//Число игроков должно быть числом в диапазоне от 3 до 10
+    alert('Ошибка: Введите число от 3 до 10');//В противном случаии будет постояно вылезать алерт не дающий запустить игру
+    players = prompt('Число игроков:');
+  }
+  
+  
+  for (var i = 1; i <= players; i++) { //Добавляем число игроков в масив начиная с 1,2,3..n
+    arrPlayers.push(i);
+  }
+
+
 
 
 btnAddSpy1.addEventListener('click' , function(){
@@ -88,23 +93,43 @@ btnAddSpy2.addEventListener('click' , function(){
 
 
 btnStart.addEventListener('click' , function(){
-  stopTimer = false;
-  btnStart.disabled = true;
-  btnStop.disabled = false;
-  btnStop.style.opacity = '1';
+  stopTimer = false; //Переключатель остановки таймера
+  btnStart.disabled = true; //Делаем кнопку Старт не активной
+  btnStop.disabled = false; //Делаем кнопку Стоп активной
+  btnStop.style.opacity = '1'; //Меняем прозрачность кнопки Стоп
 
   document.getElementById('spy-win').innerHTML = `Игра началась!`;
 
-  min = 4;
-  sec = 59;
+  min = 4; // Задаем начальные значения минут для таймера
+  sec = 59; // Задаем начальные значения секунд для таймера
 
-  if(activeOneSpy){
-    var randomLoc = Math.floor(Math.random() * locations.length);
-    var randomSpy = Math.floor(Math.random() * arrPlayers.length);
+  if(activeOneSpy){ //Если выбран режим одного шпиона
+    var randomLoc = Math.floor(Math.random() * locations.length); //Ищем рандомный индекс из локаций
+    var randomSpy = Math.floor(Math.random() * arrPlayers.length); //Ищем рандомного шпиона
+
+    if(locations.length > 0){//Если масив имеет хоть 1 локацию
+      for (var i = 1; i <= players; i++) { //Делаем нумерацию игроков от 1 до n
+        if (i == arrPlayers[randomSpy]){ //Если игрок == рандомному числу шпиона, то он шпион
+          alert(`Игрок ${i} ---- ШПИОН`);
+          alert('Next');
+        }
+        else {
+          alert(`Игрок ${i} ---- ${locations[randomLoc]}`); //Тут выводим локацию обычным игрокам
+          alert('Next');
+        };
+      }
+    }
+  }
+
+  if(activeTwoSpy){ //Если выбран режим двух шпионов
+    var randomLoc = Math.floor(Math.random() * locations.length); //Ищем рандомный индекс из локаций
+    var randomSpy = Math.floor(Math.random() * arrPlayers.length); //Ищем рандомного шпиона
+    var randomSpy2 = Math.floor(Math.random() * arrPlayers.length); //Ищем второго рандомного шпиона
+    while(randomSpy == randomSpy2) randomSpy2 = Math.floor(Math.random() * arrPlayers.length);//Если 1 шпион == 2 шпиону, тогда еще раз вычислить рандомного 2 шпиона, пока он не будет отличатся от 1 шпиона
 
     if(locations.length > 0){
       for (var i = 1; i <= players; i++) {
-        if (i == arrPlayers[randomSpy]){
+        if (i == arrPlayers[randomSpy] || i == arrPlayers[randomSpy2]){//Если игрок == рандомному числу  1 шпиона или шпиона 2, то он шпион
           alert(`Игрок ${i} ---- ШПИОН`);
           alert('Next');
         }
@@ -114,50 +139,29 @@ btnStart.addEventListener('click' , function(){
         };
       }
     }
-  }
-
-  if(activeTwoSpy){
-    var randomLoc = Math.floor(Math.random() * locations.length);
-    var randomSpy = Math.floor(Math.random() * arrPlayers.length);
-    var randomSpy2 = Math.floor(Math.random() * arrPlayers.length);
-    while(randomSpy == randomSpy2) randomSpy2 = Math.floor(Math.random() * arrPlayers.length);
-
-    if(locations.length > 0){
-      for (var i = 1; i <= players; i++) {
-        if (i == arrPlayers[randomSpy] || i == arrPlayers[randomSpy2]){
-          alert(`Игрок ${i} ---- ШПИОН`);
-          alert('Next');
-        }
-        else {
-          alert(`Игрок ${i} ---- ${locations[randomLoc]}`);
-          alert('Next');
-        };
-      }
-    }
 
   }
 
-  countdown(); // вызов функции
-   
-  if(locations.length == 0){
+ 
+
+  if(locations.length == 0){ //Если слова закончились
     alert('Words Over!')
   }
-  
+
+  countdown(); // вызов функции таймера
  
-  locations.splice(randomLoc, 1);
+  locations.splice(randomLoc, 1); //Удаляем локацию из массива что-бы за игру она повторно не попалась
 })
 
 
-let stopTimer = false;
+let stopTimer = false; //Переключатель что бы понять, была нажата кнопка стоп или нет
 
-btnStop.addEventListener('click' , function(){
+btnStop.addEventListener('click' , function(){ //Кнопка стоп, при нажатии
+  stopTimer = true; //Переводи переключатель в активное положение
 
-
-  stopTimer = true;
-
-  btnStart.disabled = false;
-  btnStop.disabled = true;
-  btnStop.style.opacity = '0.3';
+  btnStart.disabled = false; //Делаем кнопку старт активной
+  btnStop.disabled = true; //Делаем кнопку стоп не активной
+  btnStop.style.opacity = '0.3'; //Меняе прозрачность кнопке стоп
 
 })
 
@@ -168,25 +172,28 @@ var min = 4; // стартовое значение обратного отсч�
 
 function countdown(){  // функция обратного отсчета
 
-  if(!stopTimer){
+  if(!stopTimer){ //Функция запускается только когда переключатель активен
+    //При нажатии на кнопку старт переключатель активен
+    //При нажатии на кнопку стоп, переключатель не активен
 
-  document.getElementById('timer').innerHTML = `${min} : ${sec}`;
+  document.getElementById('timer').innerHTML = `${min} : ${sec}`;// Каждую секунду обновлям данные на странице
   sec--; // уменьшаем число на единицу
-  if (sec < 1){ 
-    min--;
-    timer = setTimeout(countdown, 1000);
-    sec = 59;
+  if (sec < 0){ //Если значение секунт стало меньше 0
+    min--; //Уменьшаем значения минуты на 1 единицу
+    timer = setTimeout(countdown, 1000);//Рекурсивно вызываем эту же функцию, пока значения минут не будет меньше 0
+    sec = 59; //Обновляем значения секунд
 
-    if(min < 0){
-      document.getElementById('spy-win').innerHTML = `Шпион Победил!`;
-      btnStart.disabled = false;
+    if(min < 0){ //Если значение минут стало меньше 0
+      document.getElementById('spy-win').innerHTML = `Шпион Победил!`;//Виводим надпись что Шпион победил
+      btnStart.disabled = false; //Делаем кнопку старта активной
+      btnStop.disabled = true; //Делаем кнопку стоп неактивной
       clearTimeout(timer); // таймер остановится на нуле
     } 
   }else {
-    timer = setTimeout(countdown, 1000);
+    timer = setTimeout(countdown, 1000); //Рекурсивно вызываем функцию до момента пока значения секунд не будет меньше 0
     }
 
-  }else clearTimeout(timer);
+  }else clearTimeout(timer); //Если переключатель не активен то остановить функцию, очистить timeout
 
 }
 
