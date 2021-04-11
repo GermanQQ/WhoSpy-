@@ -3,22 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Who is a spy?</title>
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 <body>
   <div class="container">
     
     <div class="btn-box">
-      <p class="btn-box__text">Шпионов в игре:</p>
-      <button class="btn-spy-count firstBtn">1</button>
-      <button class="btn-spy-count secondBtn">2</button>
+      <img class="btn-rules" src="img/rules.svg" alt="rules">
+      <div class="btn-spyCount-box">
+        <p class="btn-box__text">Шпионов в игре:</p>
+        <button class="btn-spy-count firstBtn">1</button>
+        <button class="btn-spy-count secondBtn">2</button>
+      </div>
+    </div>
+
+    <div class="rules-wrap">
+      <img class="btn-close-rules" src="img/close.svg" alt="close">
+        <div class="swiper swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide rules-slide">
+              <img class="icon-rules-image" src="img/hand-holding-up-a-smartphone.svg" alt="">
+              <p class="text-rules">В игре участвуют <b>Местные</b> и <b>Шпион.</b> Передавайте друг другу телефон, чтобы узнать свои роли. Всем местным будет сообщена локация, <b>Шпиону -нет.</b></p>
+            </div>
+            <div class="swiper-slide rules-slide">
+              <img class="icon-rules-image" src="img/location.svg" alt="">
+              <p class="text-rules"><b>Задавайте друг другу вопросы,</b> связанные с данной локацией. Например: <b>"Когда последний раз был в этом месте?".</b></br>
+              Право задать следующий вопрос переходит отвечающему.</p>
+            </div>
+            <div class="swiper-slide rules-slide">
+              <img class="icon-rules-image" src="img/users-group.svg" alt="">
+              <p class="text-rules"><b>Прислушивайтесь к ответам других игроков:</b> Шпион локацию не знает, из-за чего может отвечать неточно.</p>
+            </div>
+            <div class="swiper-slide rules-slide">
+              <img class="icon-rules-image" src="img/point.svg" alt="">
+              <p class="text-rules">
+                Если подозреваешь кого-то <b>в Шпионаже</b>, скажи: <b>"Я знаю, кто шпион"</b> . На счет "три" каждый игрок должен указать на того человека, который, на их взгляд, Шпион.</p>
+            </div>
+            <div class="swiper-slide rules-slide">
+              <img class="icon-rules-image" src="img/discussion.svg" alt="">
+              <p class="text-rules"><b>Выбрали одного и того же человека?</b></br>
+                Он должен раскрыть свою роль. Если это действительно шпион, <b>местные победили.</b> Если же этот игрок оказывается местным, игра заканчивается <b>в пользу Шпиона.</b></p>
+            </div>
+            <div class="swiper-slide rules-slide">
+              <img class="icon-rules-image" src="img/winner.svg" alt="">
+              <p class="text-rules"><b>Если Шпион догадался</b>, о какой локации говорят местные, он может её назвать. Если он угадывает, победа <b>Шпиона.</b>  Если же нет - побеждают <b>местные.</b></p>
+            </div>
+            <div class="swiper-slide rules-slide">
+              <img class="icon-rules-image" src="img/timer.svg" alt="">
+              <p class="text-rules"><b>Не забывайте про таймер!</b> Время игры ограничено, стоит поторопится. <b>(5 минут)</b>. </br>
+                В новой игре первый задает вопрос тот человек, который был Шпионом в прошлой игре.</p>
+            </div>
+          </div>
+          
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+        
     </div>
 
     <div class="box-start">
-      <img class="box-start__img" src="spy.svg" alt="spy">
+      <img class="box-start__img" src="img/spy.svg" alt="spy">
       <button class="btn-start">Старт</button>
       <button class="btn-stop">Стоп</button>
     </div>
@@ -29,7 +77,7 @@
     </div>
   </div>
 
-  
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -97,7 +97,7 @@ btnStart.addEventListener('click' , function(){
   btnStart.disabled = true; //Делаем кнопку Старт не активной
   btnStop.disabled = false; //Делаем кнопку Стоп активной
   btnStop.style.opacity = '1'; //Меняем прозрачность кнопки Стоп
-
+  
   document.getElementById('spy-win').innerHTML = `Игра началась!`;
 
   min = 4; // Задаем начальные значения минут для таймера
@@ -199,6 +199,21 @@ function countdown(){  // функция обратного отсчета
 
 
 
-  
+  document.querySelector('.btn-rules').addEventListener('click' , function(){
+    document.querySelector('.rules-wrap').style.transform = 'translateY(-50%)';
+  })
+
+  document.querySelector('.btn-close-rules').addEventListener('click' , function(){
+    document.querySelector('.rules-wrap').style.transform = 'translateY(-200%)';
+  })
 
 
+
+
+
+new Swiper('.swiper', {
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+})
