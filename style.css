@@ -107,7 +107,6 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
   min-width: 0;
   transform: translateY(-200%);
   transition: 0.2s linear transform;
@@ -116,7 +115,7 @@ body{
   min-width: 0;
 }
 .btn-close-rules{
-  width: 25px;
+  width: 35px;
   position: absolute;
   top: 15px;
   right: 15px;
@@ -139,6 +138,14 @@ body{
 .text-rules{
   font-size: 18px;
   width: 90%;
+}
+.swiper-button-next{
+  transform: translateX(10px);
+  transform: translateY(-10px);
+}
+.swiper-button-prev{
+  transform: translateX(-10px);
+  transform: translateY(-10px);
 }
 
 
