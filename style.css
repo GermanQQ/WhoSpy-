@@ -38,8 +38,7 @@ body{
   background-color: #2d6eaa;
 }
 .btn-spy-count{
-  width: 35px;
-  height: 35px;
+  padding: 6px 12px;
   font-size: 20px;
   border-radius: 5px;
   text-align: center;
