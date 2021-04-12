@@ -38,8 +38,9 @@ body{
   background-color: #2d6eaa;
 }
 .btn-spy-count{
-  padding: 8px 15px;
-  font-size: 22px;
+  width: 35px;
+  height: 35px;
+  font-size: 20px;
   border-radius: 5px;
   text-align: center;
   background-color: #4e4c4c;
@@ -52,21 +53,78 @@ body{
 .secondBtn{
   opacity: 0.5;
 }
+
 .btn-box{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
+
+.settings-box{
+  width: 100%;
+  height: 80%;
+  background-color: #888282;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-200%);
+  z-index: 2;
+  transition: 0.2s linear transform;
+}
+.settings-wrap{
+  padding: 15px;
+}
+.settings-text{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.btn-count-player{
+  height: 40px;
+  font-size: 18px;
+}
 .btn-spyCount-box{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+}
+.btn-count-player-box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .btn-box__text{
   font-size: 20px;
   margin-right: 5px;
+}
+.btn-count-text{
+  font-size: 20px;
+  margin-right: 5px;
+}
+.btn-count-player{
+  width: 40px;
+}
+.btn-count-player:hover{
+  opacity: 0.7;
+  cursor: pointer;
+}
+.time-in-game-box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.time-in-game__text{
+  font-size: 20px;
+  margin-right: 5px;
+}
+.firstBtnTime{
+  opacity: 0.5;
+}
+.secondBtnTime{
+  background-color: #2d6eaa;
+}
+.thirdBtnTime{
+  opacity: 0.5;
 }
 .box-timer{
   width: 100%;
@@ -92,7 +150,12 @@ body{
 }
 
 .btn-rules{
+  margin-top: 15px;
   width: 40px;
+}
+.btn-rules:hover{
+  opacity: 0.7;
+  cursor: pointer;
 }
 
 .rules-wrap{
@@ -114,14 +177,14 @@ body{
 .swiper{
   min-width: 0;
 }
-.btn-close-rules{
+.btn-close{
   width: 35px;
   position: absolute;
   top: 15px;
   right: 15px;
   transition: 0.2s linear opacity;
 }
-.btn-close-rules:hover{
+.btn-close:hover{
   opacity: 0.7;
   cursor: pointer;
 }
@@ -146,6 +209,15 @@ body{
 .swiper-button-prev{
   transform: translateX(-10px);
   transform: translateY(-10px);
+}
+.settings-icon{
+  margin-top: 15px;
+  width: 40px;
+  transition: 0.3s linear transform;
+}
+.settings-icon:hover{
+  opacity: 0.7;
+  cursor: pointer;
 }
 
 

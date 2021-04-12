@@ -49,7 +49,7 @@ var timer = document.getElementById('timer');
 
 let activeOneSpy = true;
 let activeTwoSpy = false;
-
+let gameStart = false;
 
 var arrPlayers = [];
 
@@ -93,6 +93,7 @@ btnAddSpy2.addEventListener('click' , function(){
 
 
 btnStart.addEventListener('click' , function(){
+  gameStart = true;
   stopTimer = false; //Переключатель остановки таймера
   btnStart.disabled = true; //Делаем кнопку Старт не активной
   btnStop.disabled = false; //Делаем кнопку Стоп активной
@@ -100,7 +101,7 @@ btnStart.addEventListener('click' , function(){
   
   document.getElementById('spy-win').innerHTML = `Игра началась!`;
 
-  min = 4; // Задаем начальные значения минут для таймера
+  min = min; // Задаем начальные значения минут для таймера
   sec = 59; // Задаем начальные значения секунд для таймера
 
   if(activeOneSpy){ //Если выбран режим одного шпиона
@@ -158,7 +159,7 @@ let stopTimer = false; //Переключатель что бы понять, б
 
 btnStop.addEventListener('click' , function(){ //Кнопка стоп, при нажатии
   stopTimer = true; //Переводи переключатель в активное положение
-
+  gameStart = false;
   btnStart.disabled = false; //Делаем кнопку старт активной
   btnStop.disabled = true; //Делаем кнопку стоп не активной
   btnStop.style.opacity = '0.3'; //Меняе прозрачность кнопке стоп
@@ -206,6 +207,62 @@ function countdown(){  // функция обратного отсчета
   document.querySelector('.btn-close-rules').addEventListener('click' , function(){
     document.querySelector('.rules-wrap').style.transform = 'translateY(-200%)';
   })
+
+  document.querySelector('.settings-icon').addEventListener('click' , function(){
+    if(!gameStart){
+      document.querySelector('.settings-box').style.transform = 'translateY(-50%)';
+      document.querySelector('.settings-icon').style.transform = 'rotate(90deg)';
+    }else alert('Закончите текущую игру!')
+  })
+
+  document.querySelector('.btn-close-settings').addEventListener('click' , function(){
+    document.querySelector('.settings-box').style.transform = 'translateY(-200%)';
+    document.querySelector('.settings-icon').style.transform = 'rotate(0deg)';
+  })
+
+  document.querySelector('.firstBtnTime').addEventListener('click' , function(){
+    min = 2;
+    document.querySelector('.firstBtnTime').style.backgroundColor = '#2d6eaa';
+    document.querySelector('.firstBtnTime').style.opacity = '1';
+    document.querySelector('.secondBtnTime').style.backgroundColor = '#4e4c4c';
+    document.querySelector('.secondBtnTime').style.opacity = '0.7';
+    document.querySelector('.thirdBtnTime').style.backgroundColor = '#4e4c4c';
+    document.querySelector('.thirdBtnTime').style.opacity = '0.7';
+  })
+
+  document.querySelector('.secondBtnTime').addEventListener('click' , function(){
+    min = 4;
+    document.querySelector('.firstBtnTime').style.backgroundColor = '#4e4c4c';
+    document.querySelector('.firstBtnTime').style.opacity = '0.7';
+    document.querySelector('.secondBtnTime').style.backgroundColor = '#2d6eaa';
+    document.querySelector('.secondBtnTime').style.opacity = '1';
+    document.querySelector('.thirdBtnTime').style.backgroundColor = '#4e4c4c';
+    document.querySelector('.thirdBtnTime').style.opacity = '0.7';
+  })
+
+  document.querySelector('.thirdBtnTime').addEventListener('click' , function(){
+    min = 9;
+    document.querySelector('.firstBtnTime').style.backgroundColor = '#4e4c4c';
+    document.querySelector('.firstBtnTime').style.opacity = '0.7';
+    document.querySelector('.secondBtnTime').style.backgroundColor = '#4e4c4c';
+    document.querySelector('.secondBtnTime').style.opacity = '0.7';
+    document.querySelector('.thirdBtnTime').style.backgroundColor = '#2d6eaa';
+    document.querySelector('.thirdBtnTime').style.opacity = '1';
+  })
+
+  document.querySelector('.btn-count-player').addEventListener('click' , function(){
+    arrPlayers.length = 0;
+    players = prompt(`Число игроков:`); //Число игроков
+    while(players < 3 ||players >= 10 || !Number(players)){//Число игроков должно быть числом в диапазоне от 3 до 10
+      alert('Ошибка: Введите число от 3 до 10');//В противном случаии будет постояно вылезать алерт не дающий запустить игру
+      players = prompt('Число игроков:');
+    }
+
+    for (var i = 1; i <= players; i++) { //Добавляем число игроков в масив начиная с 1,2,3..n
+      arrPlayers.push(i);
+    }
+  })
+
 
 
 
