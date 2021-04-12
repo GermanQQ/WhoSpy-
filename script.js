@@ -202,6 +202,7 @@ function countdown(){  // функция обратного отсчета
 
   document.querySelector('.btn-rules').addEventListener('click' , function(){
     document.querySelector('.rules-wrap').style.transform = 'translateY(-50%)';
+    document.querySelector('.settings-box').style.transform = 'translateY(-200%)';
   })
 
   document.querySelector('.btn-close-rules').addEventListener('click' , function(){
@@ -212,6 +213,7 @@ function countdown(){  // функция обратного отсчета
     if(!gameStart){
       document.querySelector('.settings-box').style.transform = 'translateY(-50%)';
       document.querySelector('.settings-icon').style.transform = 'rotate(90deg)';
+      document.querySelector('.rules-wrap').style.transform = 'translateY(-200%)';
     }else alert('Закончите текущую игру!')
   })
 
