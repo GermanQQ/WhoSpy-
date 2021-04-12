@@ -227,27 +227,27 @@ function countdown(){  // функция обратного отсчета
     document.querySelector('.firstBtnTime').style.backgroundColor = '#2d6eaa';
     document.querySelector('.firstBtnTime').style.opacity = '1';
     document.querySelector('.secondBtnTime').style.backgroundColor = '#4e4c4c';
-    document.querySelector('.secondBtnTime').style.opacity = '0.7';
+    document.querySelector('.secondBtnTime').style.opacity = '0.5';
     document.querySelector('.thirdBtnTime').style.backgroundColor = '#4e4c4c';
-    document.querySelector('.thirdBtnTime').style.opacity = '0.7';
+    document.querySelector('.thirdBtnTime').style.opacity = '0.5';
   })
 
   document.querySelector('.secondBtnTime').addEventListener('click' , function(){
     min = 4;
     document.querySelector('.firstBtnTime').style.backgroundColor = '#4e4c4c';
-    document.querySelector('.firstBtnTime').style.opacity = '0.7';
+    document.querySelector('.firstBtnTime').style.opacity = '0.5';
     document.querySelector('.secondBtnTime').style.backgroundColor = '#2d6eaa';
     document.querySelector('.secondBtnTime').style.opacity = '1';
     document.querySelector('.thirdBtnTime').style.backgroundColor = '#4e4c4c';
-    document.querySelector('.thirdBtnTime').style.opacity = '0.7';
+    document.querySelector('.thirdBtnTime').style.opacity = '0.5';
   })
 
   document.querySelector('.thirdBtnTime').addEventListener('click' , function(){
     min = 9;
     document.querySelector('.firstBtnTime').style.backgroundColor = '#4e4c4c';
-    document.querySelector('.firstBtnTime').style.opacity = '0.7';
+    document.querySelector('.firstBtnTime').style.opacity = '0.5';
     document.querySelector('.secondBtnTime').style.backgroundColor = '#4e4c4c';
-    document.querySelector('.secondBtnTime').style.opacity = '0.7';
+    document.querySelector('.secondBtnTime').style.opacity = '0.5';
     document.querySelector('.thirdBtnTime').style.backgroundColor = '#2d6eaa';
     document.querySelector('.thirdBtnTime').style.opacity = '1';
   })
