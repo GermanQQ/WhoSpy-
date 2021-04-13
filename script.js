@@ -188,6 +188,7 @@ function countdown(){  // функция обратного отсчета
       document.getElementById('spy-win').innerHTML = `Шпион Победил!`;//Виводим надпись что Шпион победил
       btnStart.disabled = false; //Делаем кнопку старта активной
       btnStop.disabled = true; //Делаем кнопку стоп неактивной
+      gameStart = false;
       clearTimeout(timer); // таймер остановится на нуле
     } 
   }else {
