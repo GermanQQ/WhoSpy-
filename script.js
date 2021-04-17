@@ -99,6 +99,10 @@ btnStart.addEventListener('click' , function(){
   btnStop.disabled = false; //Делаем кнопку Стоп активной
   btnStop.style.opacity = '1'; //Меняем прозрачность кнопки Стоп
   
+  if(twoMin == true) min = 2;
+  if(fourMin == true) min = 4;
+  if(tenMin == true) min = 9;
+
   document.getElementById('spy-win').innerHTML = `Игра началась!`;
 
   min = min; // Задаем начальные значения минут для таймера
@@ -223,8 +227,15 @@ function countdown(){  // функция обратного отсчета
     document.querySelector('.settings-icon').style.transform = 'rotate(0deg)';
   })
 
+  let twoMin = false;
+  let fourMin = true;
+  let tenMin = false;
+
   document.querySelector('.firstBtnTime').addEventListener('click' , function(){
     min = 2;
+    twoMin = true;
+    fourMin = false;
+    tenMin = false;
     document.querySelector('.firstBtnTime').style.backgroundColor = '#2d6eaa';
     document.querySelector('.firstBtnTime').style.opacity = '1';
     document.querySelector('.secondBtnTime').style.backgroundColor = '#4e4c4c';
@@ -235,6 +246,9 @@ function countdown(){  // функция обратного отсчета
 
   document.querySelector('.secondBtnTime').addEventListener('click' , function(){
     min = 4;
+    twoMin = false;
+    fourMin = true;
+    tenMin = false;
     document.querySelector('.firstBtnTime').style.backgroundColor = '#4e4c4c';
     document.querySelector('.firstBtnTime').style.opacity = '0.5';
     document.querySelector('.secondBtnTime').style.backgroundColor = '#2d6eaa';
@@ -245,6 +259,9 @@ function countdown(){  // функция обратного отсчета
 
   document.querySelector('.thirdBtnTime').addEventListener('click' , function(){
     min = 9;
+    twoMin = false;
+    fourMin = false;
+    tenMin = true;
     document.querySelector('.firstBtnTime').style.backgroundColor = '#4e4c4c';
     document.querySelector('.firstBtnTime').style.opacity = '0.5';
     document.querySelector('.secondBtnTime').style.backgroundColor = '#4e4c4c';
