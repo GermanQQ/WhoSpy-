@@ -51,7 +51,11 @@ body{
 .secondBtn{
   opacity: 0.5;
 }
-
+.box-btn-time-icon{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
 .btn-box{
   display: flex;
   flex-direction: row;
